@@ -15,7 +15,7 @@ Contact me on [Linkedin](www.linkedin.com/in/eric-conn-685525212)!
 
 
 
-#Thoughts About Topological Data Analysis
+# Thoughts About Topological Data Analysis
 
 Given a topolopgical space X, where X meets certain requirements, there are topological measurements we 
 can take of our space X.
