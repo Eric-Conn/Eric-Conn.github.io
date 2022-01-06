@@ -10,7 +10,7 @@ Some other interests of mine are algebraic topology, differential geometry, and 
 
 
 
-Contact me on [Linkedin](www.linkedin.com/in/eric-conn-685525212)!
+Contact me on [Linkedin](www.linkedin.com/in/eric-conn-685525212/)!
   
 
 
