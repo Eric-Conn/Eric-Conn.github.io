@@ -5,10 +5,10 @@ I have a B.S. in mathematics from The City University of New York, College of St
 
 
 # About me:
-I love mathematics. Cureently, I am interested in algebraic topology.
-I am also interestd in integration.
-I am always impressed when I see aq solution to a hard integral.
-My next goal in algebraic topology is to read a research paper. I think reading a research poaper is a good goal becasue it gives my studies some structure.
+I love mathematics. Currently, I am interested in algebraic topology.
+I am also interestd in solving integrals.
+I am always impressed when I see a solution to a hard integral.
+My next goal in algebraic topology is to read a research paper. I think reading a research paper is a good goal becasue it gives my studies some structure.
 
 # Job Stuff:
 
