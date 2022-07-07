@@ -1,7 +1,7 @@
 ## Eric Connelly's Website
 
 Welcome to Eric Connelly's website! 
-I have a bachelors of science in mathematics from The City University of New York, College of Staten Island.
+I have a B.S. in mathematics from The City University of New York, College of Staten Island.
 
 
 # About me:
