@@ -12,7 +12,7 @@ My next goal in algebraic topology is to read a research paper. I think reading 
 
 # Job Stuff:
 
-I am currently looking for a job. I will be posting some portfolio projects soon.
+I am currently looking for a job! I will be posting some portfolio projects soon.
 
 Contact me on [Linkedin](https://www.linkedin.com/in/eric-connelly-685525212/)!
   
