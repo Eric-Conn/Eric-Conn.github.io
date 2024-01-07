@@ -21,5 +21,5 @@ For this project we used time series methods to create predictions for the next 
 ![image](/Assets/BoardingsNumberAndPredictions.png)
 
 
-<img src="/Eric-Conn/Eric-Conn.github.io/raw/main/Assets/BoardingsPredictions_11-23to10-24.png" width="309" align="center" style="max-width: 100%; margin: 0 auto; display: block">
+<img src="/Eric-Conn/Eric-Conn.github.io/Assets/BoardingsPredictions_11-23to10-24.png" width="309" align="center" style="max-width: 100%; margin: 0 auto; display: block">
 
