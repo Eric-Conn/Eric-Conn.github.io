@@ -24,7 +24,7 @@ For this project we used time series methods to create predictions for the next 
 
      Assets/BoardingsNumberAndPredictions.png
      
-<img src="BoardingsPredictions_11-23to10-24.png" width="240" align="left"/>
+<img src="BoardingsPredictions_11-23to10-24.png" width="140" align="left"/>
 
 
 
