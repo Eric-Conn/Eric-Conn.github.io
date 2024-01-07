@@ -16,7 +16,7 @@ Contact me on [Linkedin](https://www.linkedin.com/in/eric-connelly-685525212/)!
 
 ### NYC Ferry Data Time Series Forcasting
 
-For this project we used time series methods to create predictions for the next year. 
+For this project we used time series methods to create predictions for the next year. Note: I have no affiliation with the NYC Ferry.
 
 ![image](/Assets/BoardingsNumberAndPredictions.png)
 
