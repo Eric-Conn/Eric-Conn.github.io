@@ -10,6 +10,16 @@ I am currently looking for a job! I know how to program in Python.
 I will be posting some portfolio projects soon.
 
 Contact me on [Linkedin](https://www.linkedin.com/in/eric-connelly-685525212/)!
+
+
+## Projects
+
+# NYC Ferry Data Time Series Forcasting
+
+For this project we used time series methods to create predictions for the next year. 
+
+
+
   
 
 
