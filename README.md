@@ -18,8 +18,11 @@ Contact me on [Linkedin](https://www.linkedin.com/in/eric-connelly-685525212/)!
 
 For this project we used time series methods to create predictions for the next year. 
 
+![image](/Assets/BoardingsNumberAndPredictions.png)
 
+![image](/Assets/BoardingsPredictions_11-23to10-24.png)
 
-  
+     Assets/BoardingsNumberAndPredictions.png
+Assets/BoardingsPredictions_11-23to10-24.png
 
 
