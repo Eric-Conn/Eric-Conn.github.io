@@ -35,3 +35,6 @@ Note: I have no affiliation with the NYC Ferry.
 # U.S. Food Imports Data Time Series Analysis
 
 For this project we used transformed the dataset into a time series and then use exponetial smoothing to make future predictions.
+
+Note: I have no affiliation with the U.S. Government.
+
