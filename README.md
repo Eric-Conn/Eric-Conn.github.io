@@ -10,7 +10,7 @@ I am looking for a roll in data science , data analytics, or machine lelarning. 
 
 Contact me on [Linkedin](https://www.linkedin.com/in/eric-connelly-685525212/)!
 
-Check out my Github: [Github](https://github.com/Eric-Conn)!
+Check out my Github: [Github](https://github.com/Eric-Conn)
 
 
 ## Projects
