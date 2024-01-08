@@ -5,7 +5,7 @@ I have a B.S. in mathematics from The City University of New York, College of St
 
 
 ## About me:
-I am looking for a roll in data science , data analytics, or machine lelarning. I have a background in mathematics and can program, with my preffered language as Python. I am currently a math and statistics tutor at SUNY FIT who also tutors students in data analysis and machine learning.
+I am looking for a role in data science , data analytics, or machine lelarning. I have a background in mathematics and can program, with my preffered language as Python. I am currently a math and statistics tutor at SUNY FIT who also tutors students in data analysis and machine learning.
 
 
 Contact me on [Linkedin](https://www.linkedin.com/in/eric-connelly-685525212/)!
