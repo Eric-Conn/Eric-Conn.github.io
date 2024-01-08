@@ -18,7 +18,7 @@ A brief overview of my projects. Some are still a work in progress. Feel free to
 
 # NYC Ferry Data Time Series Forecasting
 
-Suppose we are data anlysts working for the NYC Ferry. One goal of the NYC Ferry may be to predict boarding numbers and revenue for the next year in order to allocate resources efficiently.
+Suppose we are data analysts working for the NYC Ferry. One goal of the NYC Ferry may be to predict boarding numbers and revenue for the next year in order to allocate resources efficiently.
 Ferry ridership fluctuates up and down each year, so it's important to know if there are any trends, and what changes are due to trends and what changes are due to seasonality, if any, and also, what behaviour can be attributed to random fluctuations with a noisy pattern.
 
 So, for this project we used time series methods to decompose our data into a trend component, a seasonal component, and a irregular component, and used this decomposition to create predictions for the NYC Ferry system boarding numbers for the next year.
