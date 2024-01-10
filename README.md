@@ -19,6 +19,8 @@ A brief overview of my projects. Some are still a work in progress. Feel free to
 
 NYC Ferry Data Time Series Forecasting
 
+{:.no_toc}
+
 * TOC
 {:toc}
 
