@@ -16,6 +16,12 @@ Check out my Github: [Github](https://github.com/Eric-Conn)
 ## Projects
 A brief overview of my projects. Some are still a work in progress. Feel free to message me or email me if you have a ny comments, criticisms, or questions.
 
+
+NYC Ferry Data Time Series Forecasting
+
+* TOC
+{:toc}
+
 # NYC Ferry Data Time Series Forecasting
 
 Suppose we are data analysts working for the NYC Ferry. One goal of the NYC Ferry may be to predict boarding numbers and revenue for the next year in order to allocate resources efficiently.
