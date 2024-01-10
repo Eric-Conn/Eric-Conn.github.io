@@ -1,10 +1,12 @@
 ## Eric Connelly's Website
+{:.no_toc}
 
 Welcome to Eric Connelly's website! 
 I have a B.S. in mathematics from The City University of New York, College of Staten Island.
 
 
 ## About me:
+{:.no_toc}
 I am looking for a role in data science , data analytics, or machine learning. I have a background in mathematics and can program, with my preffered language as Python. I am currently a math and statistics tutor at SUNY FIT who also tutors students in data analysis and machine learning.
 
 
@@ -14,12 +16,12 @@ Check out my Github: [Github](https://github.com/Eric-Conn)
 
 
 ## Projects
+{:.no_toc}
 A brief overview of my projects. Some are still a work in progress. Feel free to message me or email me if you have a ny comments, criticisms, or questions.
 
 
 NYC Ferry Data Time Series Forecasting
 
-{:.no_toc}
 
 * TOC
 {:toc}
