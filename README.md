@@ -20,9 +20,6 @@ Check out my Github: [Github](https://github.com/Eric-Conn)
 A brief overview of my projects. Some are still a work in progress. Feel free to message me or email me if you have a ny comments, criticisms, or questions.
 
 
-NYC Ferry Data Time Series Forecasting
-
-
 * TOC
 {:toc}
 
