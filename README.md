@@ -2,12 +2,12 @@
 {:.no_toc}
 
 Welcome to Eric Connelly's website! 
-I have a B.S. in mathematics from The City University of New York, College of Staten Island.
+I have a Bachelor of Science in Mathematics from The City University of New York, College of Staten Island.
 
 
 ## About me:
 {:.no_toc}
-I am looking for a role in data science , data analytics, or machine learning. I have a background in mathematics and can program, with my preffered language as Python. I am currently a math and statistics tutor at SUNY FIT who also tutors students in data analysis and machine learning.
+I am looking for a role in data science , data analytics, or machine learning. I have a background in mathematics and programming, with my preffered language as Python. I am currently a mathematics and statistics tutor at The Fashion Institute of Technology. I also tutor students in data analysis and machine learning.
 
 
 Contact me on [Linkedin](https://www.linkedin.com/in/eric-connelly-685525212/)!
@@ -17,7 +17,7 @@ Check out my Github: [Github](https://github.com/Eric-Conn)
 
 ## Projects
 {:.no_toc}
-A brief overview of my projects. Some are still a work in progress. Feel free to message me or email me if you have a ny comments, criticisms, or questions.
+Here is a brief overview of my projects. Some are still a work in progress. Feel free to message me or email me if you have any comments, criticisms, or questions.
 
 
 * TOC
