@@ -14,6 +14,11 @@ Do you think the pattern will continue?
 
 
 
+
+![image](/Assets/IDNYC_Post-Assets)
+
+
+
 About the chart:
 
 
