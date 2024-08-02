@@ -27,7 +27,7 @@ About the chart:
 
 The number of cards issued for the year 2024 is left off the chart because the year is not over yet, and the number would look artificially low.
 
-The values for 2024 don't look very different from 2023 0r 2022:
+The monthly values for 2024 don't look very different from 2023 or 2022:
 
 ![image](Assets/IDNYC_Post-Assets/Cards_Issued_Graph_Monthly.png)
 
