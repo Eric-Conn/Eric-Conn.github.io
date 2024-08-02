@@ -1,4 +1,4 @@
-# IDNYC Data Analysis Project
+# IDNYC Data Analysis
 
 Approximately 2.2 million IDNYC cards have been issued since 2015. 
 
