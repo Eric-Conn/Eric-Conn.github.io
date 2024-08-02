@@ -15,6 +15,15 @@ Contact me on [Linkedin](https://www.linkedin.com/in/eric-connelly-685525212/)!
 Check out my Github: [Github](https://github.com/Eric-Conn)
 
 
+## Blog Posts
+{:.no_toc}
+Check out my blog posts:
+
+[IDNYC Data Analysis](https://eric-conn.github.io/IDNYC_Post)
+
+
+
+
 ## Projects
 {:.no_toc}
 Here is a brief overview of my projects. Some are still a work in progress. Feel free to message me or email me if you have any comments, criticisms, or questions.
