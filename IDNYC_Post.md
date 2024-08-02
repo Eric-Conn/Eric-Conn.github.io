@@ -15,7 +15,7 @@ Do you think the pattern will continue?
 
 
 
-![image](/Assets/IDNYC_Post-Assets)
+![image](Assets/IDNYC_Post-Assets/Cards_Issued_Graph.png)
 
 
 
