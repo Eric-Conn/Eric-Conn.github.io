@@ -37,6 +37,9 @@ During the year 2023, there is no row for the month of November, so it is not cl
 
 
 
+![image](Assets/IDNYC_Post-Assets/Missing_November_Graph.png)
+
+
 If we take the midpoint of the cards issued for October and December,  and add it on to the value for 2023, we would go from around 160,000 to around 180,000 cards issued. Either way, this value does not differ too much from the adjacent years.
 
 
