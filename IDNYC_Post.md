@@ -37,7 +37,7 @@ About the data:
 
 
 
-During the year 2023, there is no row for the month of November, so it is not clear whether no cards were issued that month, or that the number of cards issued was not reported for that month. I'm leaning towards the number not being reported, but I'm not sure. December has a spike that is 33% greater than the month of October, but I don't think this gives any information on the missing month.
+During the year 2023, there is no row for the month of November, so it is not clear whether no cards were issued that month, or that the number of cards issued was not reported for that month. December has a spike that is 33% greater than the month of October, but I don't think this gives any information on the missing month.
 
 We can use the midpoint of cards issued in October 2023 and December 2023  to estimate the cards issued for November 2023:
 
