@@ -27,6 +27,10 @@ About the chart:
 
 The number of cards issued for the year 2024 is left off the chart because the year is not over yet, and the number would look artificially low.
 
+The values for 2024 don't look very different from 2023 0r 2022:
+
+![image](Assets/IDNYC_Post-Assets/Cards_Issued_Graph_Monthly.png)
+
 
 
 About the data:
@@ -35,12 +39,15 @@ About the data:
 
 During the year 2023, there is no row for the month of November, so it is not clear whether no cards were issued that month, or that the number of cards issued was not reported for that month. I'm leaning towards the number not being reported, but I'm not sure. December has a spike that is 33% greater than the month of October, but I don't think this gives any information on the missing month.
 
-If we take the midpoint of the cards issued for October and December,  and add it on to the value for 2023, we would go from around 160,000 to around 180,000 cards issued. Either way, this value does not differ too much from the adjacent years.
+We can use the midpoint of cards issued in October 2023 and December 2023  to estimate the cards issued for November 2023:
+
 
 ![image](Assets/IDNYC_Post-Assets/Missing_November_Graph.png)
 
 
-The red dot represents the midpoint estimate for the number of cards issued in November 2023. This estimate was not used when plotting the yearly totals of cards issued.
+The red dot represents the midpoint estimate for the number of cards issued in November 2023. This estimate was not used when plotting the yearly totals of cards issued in the first graph.
+
+If we take the midpoint of the cards issued for October 2023 and December 2023, and add it on to the total yearly value for 2023, we would go from around 160,000 to around 180,000 cards issued. Either way, this value does not differ too much from the cards issued in 2022.
 
 
 
@@ -49,3 +56,5 @@ The source for this data can be found on:
 
 
 https://data.cityofnewyork.us/Social-Services/IDNYC-Applications-and-Cards-Issued/rtmc-bhid/about_data
+
+Any comments, critiques, or questions, feel free to message me on Linkedin.
