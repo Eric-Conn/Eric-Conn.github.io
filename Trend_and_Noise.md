@@ -1,3 +1,5 @@
+![png](Assets/output_9_0.png)
+
 # Trend and Noise
 
 Using Numpy and Matplotlib, we can generate graphs consisting of a deterministic trend and a random noise component.
