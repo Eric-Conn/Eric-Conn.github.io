@@ -118,7 +118,7 @@ my_plot(
 
 ```python
 #Quintic
-u = np.random.uniform(-1,1,size = 8)
+u = np.random.uniform(-1,1,size = 6)
 my_plot(
   T = 5,
   delta = 0.1,
@@ -131,8 +131,3 @@ print(u)
 
     
 ![png](Assets/Trend_and_Noise/output_8_0.png)
-    
-
-
-    [-0.60451821  0.52492362 -0.93467623  0.47131298  0.11940715  0.20363388
-      0.07282746  0.79642811]
