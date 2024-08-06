@@ -69,7 +69,6 @@ my_plot(
   )
 ```
 
-Assets/Trend_and_Noise/output_5_0.png
     
 ![png](Assets/Trend_and_Noise/output_5_0.png)
     
