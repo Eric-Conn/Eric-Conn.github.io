@@ -1,4 +1,4 @@
-![png](Assets/output_9_0.png)
+![png](Assets/Trend_and_Noise/output_9_0.png)
 
 # Trend and Noise
 
