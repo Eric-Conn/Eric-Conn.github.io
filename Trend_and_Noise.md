@@ -5,7 +5,7 @@ We will only be focusing on polynomial trends for this project. The noise will b
 
 
 
-### Code
+## Code
 
 
 ```python
@@ -56,7 +56,7 @@ def my_plot(
   plt.show()
 ```
 
-### Examples
+## Examples
 
 
 ```python
