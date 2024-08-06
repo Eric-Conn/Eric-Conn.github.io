@@ -21,6 +21,8 @@ Check out my blog posts:
 
 [IDNYC Data Analysis](https://eric-conn.github.io/IDNYC_Post)
 
+[Trend and Noise](https://eric-conn.github.io/Trend_and_Noise)
+
 
 
 
