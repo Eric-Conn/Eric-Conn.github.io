@@ -76,9 +76,9 @@ my_plot(
   )
 ```
 
-
+Assets/Trend_and_Noise/output_5_0.png
     
-![png](output_5_0.png)
+![png](Assets/Trend_and_Noise/output_5_0.png)
     
 
 
@@ -97,7 +97,7 @@ my_plot(
 
 
     
-![png](output_6_0.png)
+![png](Assets/Trend_and_Noise/output_6_0.png)
     
 
 
@@ -115,7 +115,7 @@ my_plot(
 
 
     
-![png](output_7_0.png)
+![png](Assets/Trend_and_Noise/output_7_0.png)
     
 
 
@@ -134,7 +134,7 @@ print(u)
 
 
     
-![png](output_8_0.png)
+![png](Assets/Trend_and_Noise/output_8_0.png)
     
 
 
