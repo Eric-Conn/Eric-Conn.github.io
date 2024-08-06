@@ -11,7 +11,6 @@ We will only be focusing on polynomial trends for this project. The noise will b
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 ```
 
 
