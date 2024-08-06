@@ -5,12 +5,6 @@ We will only be focusing on polynomial trends for this project.
 
 
 
-# Trend and Noise
-
-We can generate a time series with a trend and noise component using Numpy.
-
-The trend component of the time series will be a deterministic function while the noise will be sampled from the normal distribution.
-
 ### Code
 
 
