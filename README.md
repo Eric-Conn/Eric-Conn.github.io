@@ -49,6 +49,8 @@ Note: I have no affiliation with the NYC Ferry.
 <img src="/Assets/BoardingsPredictions_11-23to10-24.png" width="309" align="center" style="max-width: 100%; margin: 0 auto; display: block">
 
 
+See the full notebook here: https://github.com/Eric-Conn/NYCFerryData_TimeSeriesForecasting/blob/master/FerryDataFinalReport.ipynb
+
 
 # U.S. Food Imports Data Time Series Analysis
 
