@@ -26,6 +26,9 @@ Check out my blog posts:
 ## Notebooks
 
 [Staten Island Ferry Ridership Data Analysis](https://github.com/Eric-Conn/StatenIslandFerryProject/blob/main/StatenIslandFerry_Notebook.ipynb)
+[MegaMillions Data Analysis](https://github.com/Eric-Conn/MegaMillionsAnalysisProject/blob/master/Lottery_Notebook.ipynb)
+
+
 
 
 
