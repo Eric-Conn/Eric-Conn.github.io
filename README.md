@@ -23,10 +23,13 @@ Check out my blog posts:
 
 [Trend and Noise](https://eric-conn.github.io/Trend_and_Noise)
 
+## Notebooks
+
+[Staten Island Ferry Ridership Data Analysis](https://github.com/Eric-Conn/StatenIslandFerryProject/blob/main/StatenIslandFerry_Notebook.ipynb)
 
 
 
-## Projects
+## Overview of Some Projects
 {:.no_toc}
 Here is a brief overview of my projects. Some are still a work in progress. Feel free to message me or email me if you have any comments, criticisms, or questions.
 
