@@ -24,6 +24,7 @@ Check out my blog posts:
 [Trend and Noise](https://eric-conn.github.io/Trend_and_Noise)
 
 ## Notebooks
+{:.no_toc}
 
 [Staten Island Ferry Ridership Data Analysis](https://github.com/Eric-Conn/StatenIslandFerryProject/blob/main/StatenIslandFerry_Notebook.ipynb)
 [MegaMillions Data Analysis](https://github.com/Eric-Conn/MegaMillionsAnalysisProject/blob/master/Lottery_Notebook.ipynb)
