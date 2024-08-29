@@ -7,7 +7,7 @@ I have a Bachelor of Science in Mathematics from The City University of New York
 
 ## About me:
 {:.no_toc}
-I am looking for a role in data science , data analytics, or machine learning. I have a background in mathematics and programming, with my preffered language as Python. I am currently a mathematics and statistics tutor at The Fashion Institute of Technology. I also tutor students in data analysis and machine learning.
+I am looking for a role in data science , data analytics, or machine learning. I have a background in mathematics and programming, with my preffered language as Python. I am currently a mathematics and statistics tutor at The Fashion Institute of Technology.
 
 
 Contact me on [Linkedin](https://www.linkedin.com/in/eric-connelly-685525212/)!
