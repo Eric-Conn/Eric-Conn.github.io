@@ -66,6 +66,8 @@ See the full notebook here: https://github.com/Eric-Conn/NYCFerryData_TimeSeries
 
 # U.S. Food Imports Data Time Series Analysis
 
+This project is not done.
+
 For this project we used transformed the dataset into a time series and then use exponetial smoothing to make future predictions.
 
 Note: I have no affiliation with the U.S. Government.
