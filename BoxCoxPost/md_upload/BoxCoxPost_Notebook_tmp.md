@@ -1,3 +1,9 @@
+<img src="moving_dist.gif" alt="This is an animated gif image"/>
+
+
+
+
+
 ### Model:
 
 $\hat{y} = b + wx $
