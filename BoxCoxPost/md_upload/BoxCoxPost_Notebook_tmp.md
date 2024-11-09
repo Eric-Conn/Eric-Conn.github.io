@@ -91,13 +91,13 @@ The idea is that given data with some sort of skew, we can use a boxcox transfor
 
 From Wikipedia, we have the box cox transform:
 
-$$y_i^{(\lambda)} =
+$$
+y_i^{(\boldsymbol{\lambda})} =
 \begin{cases}
- \dfrac{y_i^\lambda - 1}{\lambda} & \text{if } \lambda \neq 0, \\
- \ln y_i & \text{if } \lambda = 0,
+ \dfrac{(y_i + \lambda_2)^{\lambda_1} - 1}{\lambda_1} & \text{if } \lambda_1 \neq 0, \\
+ \ln (y_i + \lambda_2) & \text{if } \lambda_1 = 0,
 \end{cases}
 $$
-
 
 https://en.wikipedia.org/wiki/Power_transform#Box%E2%80%93Cox_transformation
 
