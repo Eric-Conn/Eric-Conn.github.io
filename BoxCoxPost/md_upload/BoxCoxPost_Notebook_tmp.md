@@ -1,4 +1,4 @@
-<img src="moving_dist.gif" alt="This is an animated gif image"/>
+<img src="moving_dist2.gif" alt="This is an animated gif image"/>
 
 
 
