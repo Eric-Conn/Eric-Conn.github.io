@@ -1,5 +1,8 @@
 # The Box-Cox Transform
 
+<img src="moving_strip_post.gif" alt="Moving strip plot"/>
+
+
 For this post we will be showing how the box-cox transform acts on skewed data.
 
 The idea is that given data with some sort of skew, we can use a box-cox transform to make it more normally distributed.
