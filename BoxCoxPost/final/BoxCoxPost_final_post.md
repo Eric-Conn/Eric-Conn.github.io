@@ -314,5 +314,5 @@ ani = animation.FuncAnimation(fig=fig, func=update, frames=40, interval=100)
 
 
 #Uncomment to save animation:
-# ani.save(filename="moving_strip2.gif", writer="pillow")
+# ani.save(filename="moving_strip_post.gif", writer="pillow")
 ```
