@@ -1,6 +1,6 @@
 <img src="moving_dist2.gif" alt="This is an animated gif image"/>
 
-
+<img src="moving_strip_post.gif" alt="Moving strip plot"/>
 
 
 
@@ -249,6 +249,10 @@ def show_boxcox_transform_catplot(m,lambda_):
   plt.show()
   return g
 ```
+
+<img src="moving_strip_post.gif" alt="Moving strip plot"/>
+
+
 
 
 ```python
