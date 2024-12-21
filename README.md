@@ -5,6 +5,16 @@ Welcome to Eric Connelly's website!
 I have a Bachelor of Science in Mathematics from The City University of New York, College of Staten Island.
 
 
+
+
+I work on all sorts of things, many mathematical or algorithmic. 
+
+
+
+
+
+
+
 ## About me:
 {:.no_toc}
 I am looking for a role in data science , data analytics, or machine learning. I have a background in mathematics and programming, with my preferred language as Python. I am currently a mathematics and statistics tutor at The Fashion Institute of Technology. I also tutor students in data analysis and machine learning.
@@ -13,6 +23,22 @@ I am looking for a role in data science , data analytics, or machine learning. I
 Contact me on [Linkedin](https://www.linkedin.com/in/eric-connelly-685525212/)!
 
 Check out my Github: [Github](https://github.com/Eric-Conn)
+
+### Idea list
+{:.no_toc}
+
+Some things I want to do/ need to start/ finish.
+
+Random Walk generator
+Graph Decomposer (Factorizer)
+Voxel Orientation Detector
+CNN Learning Process
+Backpropagator Graph
+Trajectory Decomposer
+Trajectory averager with thresholder.
+
+
+
 
 
 ## Portfolio
