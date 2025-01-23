@@ -17,6 +17,8 @@
 
      body { touch-action: none;}
 
+     /* canvas {cursor: crosshair;} */
+
       </style>
 
 
@@ -135,11 +137,11 @@ case 'yellow':
 
 if (prev_pos_x == 'a' && prev_pos_y == 'a'){
 
-prev_pos_x = touch.clientX;
-prev_pos_y = touch.clientY;
+prev_pos_x = event.changedTouches[0].clientX;
+prev_pos_y = event.changedTouches[0].clientY;
 
 
-
+// event.targetTouches 
 
 } else {
 
@@ -152,8 +154,8 @@ ctx.moveTo(prev_pos_x, prev_pos_y);
 
 
 
-prev_pos_x = event.clientX;
-prev_pos_y = event.clientY;
+prev_pos_x =event.changedTouches[0].clientX;
+prev_pos_y = event.changedTouches[0].clientY;
 
 
 
@@ -162,27 +164,39 @@ ctx.lineTo(prev_pos_x, prev_pos_y);
 
 ctx.lineWidth = draw_width
 
-if (event.buttons == 1){
+// if (event.touchStart[0] == 1){
 ctx.strokeStyle = draw_color;
 // ctx.fillStyle = draw_color;
 
 
-} else {
-ctx.strokeStyle = "transparent";
+// } else {
+// ctx.strokeStyle = "transparent";
 
 
 
-}
+// }
 ctx.stroke();
 }
 }
 
 function coordinate_touch(event) {
-        let x = touch.clientX;
-        let y = touch.clientY;
-        document.getElementById("X").value = x;
-        document.getElementById("Y").value = y;
 
+        // idx = changedTouches.length - 1
+        // let x = changedTouches[0].clientX
+        // let y = changedTouches[0].clientY
+        
+
+
+            
+            x = event.changedTouches[0].clientX
+            y = event.changedTouches[0].clientY
+            document.getElementById("X").value = x;
+            document.getElementById("Y").value = y;
+            
+  
+
+
+        
 
 
 
