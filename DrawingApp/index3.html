@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    /* div {
+        background-color: lightblue;
+        cursor: crosshair;
+   
+      } */
+
+      </style>
+
+
+
+</head>
+
+<canvas id="myCanvas" width="500" height="500"></canvas>
+
+<script>
+    function coordinate(event) {
+        let x = event.clientX;
+        let y = event.clientY;
+        document.getElementById("X").value = x;
+        document.getElementById("Y").value = y;
+
+      
+
+
+    }
+
+
+    const myCanvas = document.getElementById("myCanvas");
+    const ctx = myCanvas.getContext("2d");
+
+    ctx.fillStyle = "lightblue";
+    ctx.fillRect(0, 0, 500, 500);
+
+    var prev_pos_x = 'a'
+    var prev_pos_y = 'a'
+
+    var draw_color = 'red'
+
+    var draw_width = 1
+    
+
+
+    // const curr_pos = 
+
+    function draw_seg(event){
+
+        if (prev_pos_x == 'a' && prev_pos_y == 'a'){
+
+        prev_pos_x = event.clientX;
+        prev_pos_y = event.clientY;
+        
+
+
+        } else {
+
+       
+        
+
+        ctx.beginPath();
+    ctx.moveTo(prev_pos_x, prev_pos_y);
+
+
+    
+  
+    prev_pos_x = event.clientX;
+    prev_pos_y = event.clientY;
+
+
+  
+    
+    ctx.lineTo(prev_pos_x, prev_pos_y);
+    
+    ctx.lineWidth = draw_width
+
+    if (event.buttons == 1){
+    ctx.strokeStyle = draw_color;
+        // ctx.fillStyle = draw_color;
+        
+
+} else {
+    ctx.strokeStyle = "transparent";
+    
+    
+
+    }
+    ctx.stroke();
+}
+    }
+
+    
+
+
+
+
+    function pick_color(my_color){
+
+        switch(my_color) {
+  case 'red':
+    draw_color = 'red'
+    break;
+  case 'blue':
+     draw_color = 'blue'
+     break;
+case 'yellow':
+     draw_color = 'yellow'
+    break;
+    case 'green':
+     draw_color = 'green'
+     break;
+  default:
+    // code block
+}
+
+
+    }
+
+
+    
+
+
+
+
+
+
+
+    
+</script>
+
+ 
+<body onmousemove="coordinate(event);draw_seg(event);">
+   <div>
+    X-coordinate
+    <input type="text" id="X">
+    Y-coordinate
+    <input type="text" id="Y">
+</div>
+
+
+
+<div>
+    <button onclick = 'pick_color("red")'>red</button>
+    <button onclick = 'pick_color("blue")'>blue</button>
+    <button onclick = 'pick_color("yellow")'>yellow</button>
+    <button onclick = 'pick_color("green")'>green</button>
+
+
+</div>
+<br>
+<br>
+<p>To clear the screen, reload the page.</p>
+
+
+
+
+
+
+    
+
+
+   
+</body>
+ 
+</html>
