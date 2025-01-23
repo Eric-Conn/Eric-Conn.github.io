@@ -1,1 +1,1 @@
-SImple Drawing App!
+Simple Drawing App!
