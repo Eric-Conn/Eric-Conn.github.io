@@ -129,8 +129,62 @@ case 'yellow':
     
 
 
+    function draw_seg_touch(event){
+
+if (prev_pos_x == 'a' && prev_pos_y == 'a'){
+
+prev_pos_x = touch.clientX;
+prev_pos_y = touch.clientY;
 
 
+
+
+} else {
+
+
+
+
+ctx.beginPath();
+ctx.moveTo(prev_pos_x, prev_pos_y);
+
+
+
+
+prev_pos_x = event.clientX;
+prev_pos_y = event.clientY;
+
+
+
+
+ctx.lineTo(prev_pos_x, prev_pos_y);
+
+ctx.lineWidth = draw_width
+
+if (event.buttons == 1){
+ctx.strokeStyle = draw_color;
+// ctx.fillStyle = draw_color;
+
+
+} else {
+ctx.strokeStyle = "transparent";
+
+
+
+}
+ctx.stroke();
+}
+}
+
+function coordinate_touch(event) {
+        let x = touch.clientX;
+        let y = touch.clientY;
+        document.getElementById("X").value = x;
+        document.getElementById("Y").value = y;
+
+
+
+
+    }
 
 
 
@@ -138,7 +192,7 @@ case 'yellow':
 </script>
 
  
-<body onmousemove="coordinate(event);draw_seg(event);" ontouchstart = "coordinate(event);draw_seg(event)">
+<body onmousemove="coordinate(event);draw_seg(event);" ontouchmove = "coordinate_touch(event);draw_seg_touch(event)">
    <div>
     X-coordinate
     <input type="text" id="X">
