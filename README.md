@@ -1,6 +1,8 @@
 ## Eric Connelly's Website
 {:.no_toc}
 
+<img src="Assets/cube_rotate_test_true2.gif" alt="A gif of a spinning cube should be here!"/>
+
 Welcome to Eric Connelly's website! 
 I have a Bachelor of Science in Mathematics from The City University of New York, College of Staten Island.
 
