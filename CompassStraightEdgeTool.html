@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+
+
+
+
+
+    <body>
+     
+        <div style="position: relative;">
+            <canvas id="myCanvas" width="500" height="500" 
+              style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+            <canvas id="myCanvas2" width="500" height="500" 
+              style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
+           </div>
+
+           <canvas id="BlankCanvas" width="500" height="500" 
+           style="position: relative;"></canvas>
+
+
+
+
+
+  
+
+    <!-- <canvas id="myCanvas" height="500" width='500'>
+        Your browser does not support the canvas tag.
+        </canvas>
+        <canvas id="myCanvas2" height="500" width='500'>
+            Your browser does not support the canvas tag.
+            </canvas> -->
+
+        <div style = "height: 500; width: 500"></div>
+        <button onclick = "point_tool()">point</button>
+        <button onclick = "line_tool()">edge</button>
+        <button onclick = "circle_tool()">circle</button>
+        <!-- <button onclick="change_background()">change background</button> -->
+        <!-- <button id = 'counter' onclick="incrementor()">1</button> -->
+        <button onclick="get_actions()" id = 'action_records'>action_records</button>
+
+
+        
+
+        <body onmousemove="coordinate(event);draw_circle(event)" 
+        onclick="draw_point(event);" onmousedown = "end_circle(event)" >
+        <div>
+            X-coordinate
+            <input type="text" id="X">
+            Y-coordinate
+            <input type="text" id="Y">
+        </body>
+
+
+
+
+
+
+
+
+        <script>
+
+            let actions = []
+            
+            let draw_tool = 0
+
+            let point_dict_x = {}
+            let point_dict_y = {}
+
+            let point_list_x = []
+            let point_list_y = []
+
+
+            let count = 1
+
+            let background_color = 0
+
+            let canvas = document.getElementById("myCanvas");
+            let ctx = canvas.getContext("2d");
+            
+            // second layer
+            let canvas2 = document.getElementById("myCanvas2");
+            let ctx2 = canvas2.getContext("2d");
+
+
+            ctx.fillStyle = "#ADD8E6";
+            ctx.fillRect(0, 0, 500, 500);
+            // let ctx = canvas.getContext("2d");
+
+            let circle_center_x = 'a'
+            let circle_center_y = 'a'
+
+            let draw_circle_on = 0
+
+
+
+            get_actions = () => {
+                for (let i = 0; i < actions.length; i++) {
+
+
+                
+                
+                console.log(actions[i])}}
+
+
+
+            
+
+            function point_tool(){
+
+                draw_tool = 0;
+
+            }
+
+            function line_tool(){
+                draw_tool = 1;
+                console.log(draw_tool);
+            }
+
+            function circle_tool(){
+                draw_tool = 2;
+                console.log(draw_tool);
+            }
+            
+
+            function change_button(){
+            document.getElementById("test_button").innerHTML = 'joe'
+            }
+
+
+            function change_background(){
+            let ctx = canvas.getContext("2d");
+
+            if (background_color == 1) {
+
+
+            ctx.fillStyle = 	"#FFFFC9";
+            ctx.fillRect(0, 0, 1000, 1000);
+            background_color = (background_color + 1) % 2
+            } else {
+
+                ctx.fillStyle = 	"#ADD8E6";
+                ctx.fillRect(0, 0, 1000, 1000);
+
+                background_color = (background_color + 1) % 2
+
+            }
+
+
+            }
+
+
+            // incrementor = () => {
+            //     count +=1
+            //     document.getElementById("counter").innerHTML = count
+            // }
+
+
+
+            function coordinate(event) {
+        let x = event.clientX;
+        let y = event.clientY;
+        document.getElementById("X").value = x;
+        document.getElementById("Y").value = y;
+
+      
+
+
+    }
+
+
+
+    let line_draw_state = 0
+ 
+    let prev_x = 0
+    let prev_y = 0
+
+    let d_prev = 0
+
+
+function end_circle(event){
+    if (draw_circle_on == 1 && event.buttons == 1){
+        draw_circle_on = 2
+
+
+        ctx2.clearRect(0, 0, ctx2.canvas.width, ctx2.canvas.height);
+
+        ctx.beginPath();
+        ctx.arc(circle_center_x, circle_center_y,d, 0, 2 * Math.PI);
+        ctx.strokeStyle = "#000000"
+        ctx.stroke()
+        
+        // console.log('timeout')
+        // console.log(draw_circle_on)
+        setTimeout(() => {
+
+            draw_circle_on = 0
+            console.log('after')
+            console.log(draw_circle_on)
+                  
+                }, 300);
+       
+        //         console.log('after')
+        // console.log(draw_circle_on)
+
+        // draw_circle_on = 0
+
+
+
+    }
+}
+
+
+function draw_circle(event){
+
+    // console.log('draw circle called')
+
+    
+
+
+
+    if (draw_circle_on == 1){
+        console.log('draw circle called, 1')
+
+        mouse_coor_x = event.clientX
+        mouse_coor_y = event.clientY
+        
+        d =Math.sqrt((mouse_coor_x - circle_center_x)**2 + (mouse_coor_y - circle_center_y)**2)
+
+
+        // ctx.beginPath();
+        // ctx.arc(circle_center_x, circle_center_y,5*d, 0, 2 * Math.PI);
+        // ctx.strokeStyle = "#000000"
+        // ctx.stroke()
+        ctx2.clearRect(0, 0, ctx2.canvas.width, ctx2.canvas.height);
+        ctx2.beginPath();
+        ctx2.arc(circle_center_x, circle_center_y,d, 0, 2 * Math.PI);
+        ctx2.strokeStyle = "#000000"
+        ctx2.stroke()
+
+
+
+
+        // ctx.beginPath();
+        // ctx.arc(circle_center_x, circle_center_y,5*d_prev, 0, 2 * Math.PI);
+        // ctx.fillStyle = "#ADD8E6";
+
+        d_prev = d
+
+        // ctx2.fill()
+
+        // ctx2.stroke();
+
+
+
+
+
+
+
+        // if (event.buttons == 1){
+
+
+        //     draw_circle_on = 0
+        //     d_prev = 0
+
+        //     console.log('circle end')
+
+        // }
+
+
+    }
+
+
+
+}
+
+
+
+
+function draw_point(event){
+    console.log(draw_tool)
+
+
+    if (draw_tool == 0){
+    ctx.fillStyle = "#000000";
+
+    let click_x = event.clientX
+    let click_y = event.clientY
+
+    if (click_y > 500){return;}
+
+
+
+    ctx.fillRect(click_x - 13,click_y -13,10,10);
+
+    point_dict_x[click_x] = 1
+    point_dict_y[click_y] = 1
+
+    point_list_x.push(click_x)
+    point_list_y.push(click_y)
+
+    actions.push([click_x,click_y])
+    }
+
+    // console.log(point_dict_x)
+    // console.log(point_dict_y)
+
+    // console.log(point_list_x)
+    // console.log(point_list_y)
+
+
+    if (draw_tool == 1){
+
+        let click_x = event.clientX
+        let click_y = event.clientY
+
+
+        for (let i = 0; i < point_list_x.length; i++) {
+
+            if (point_list_x[i] - 13 < click_x && click_x <  point_list_x[i]+10
+            && point_list_y[i] - 13 < click_y && click_y <  point_list_y[i]+10){
+            if (line_draw_state == 0){
+                ctx.fillStyle = "#FFFFC9";
+                ctx.fillRect(point_list_x[i] - 13,point_list_y[i] -13,10,10);
+                line_draw_state = 1
+                ctx.beginPath();
+                
+
+
+                prev_x = point_list_x[i]
+                prev_y = point_list_y[i]
+
+                ctx.moveTo(prev_x - 5, prev_y-5);
+
+
+
+                
+
+            
+            
+            }
+            
+
+
+        
+            else if (line_draw_state == 1){
+
+                // Start a new Path
+
+                ctx.lineTo(point_list_x[i] - 5 , point_list_y[i] -5 );
+
+                // Draw the Path
+                ctx.stroke();
+
+
+                
+                
+
+                ctx.fillStyle = "#000000";
+                ctx.fillRect(prev_x - 13 ,prev_y - 13 ,10,10)
+
+                ctx.fillStyle = "#FFFFC9";
+                ctx.fillRect(point_list_x[i] - 13 ,point_list_y[i] - 13 ,10,10)
+
+                
+                setTimeout(() => {
+                    ctx.fillStyle = "#000000";
+                ctx.fillRect(point_list_x[i] - 13 ,point_list_y[i] - 13 ,10,10)
+                }, 50);
+
+                line_draw_state = 0 ;
+
+                actions.push([prev_x,prev_y,point_list_x[i],point_list_y[i]])
+
+               };
+
+
+
+
+
+
+
+            }
+
+
+
+
+}
+
+
+
+
+
+}
+
+
+if (draw_tool == 2){
+
+    let click_x = event.clientX
+    let click_y = event.clientY
+
+    for (let i = 0; i < point_list_x.length; i++) {
+
+        if (point_list_x[i] - 13 < click_x && click_x <  point_list_x[i]+10
+        && point_list_y[i] - 13 < click_y && click_y <  point_list_y[i]+10
+        && draw_circle_on == 0 ){
+
+        circle_center_x = point_list_x[i]
+        circle_center_y = point_list_y[i]
+        draw_circle_on = 1
+    return;}
+            
+        }
+
+    }
+
+    // console.log(draw_tool)
+   
+
+
+
+
+
+
+
+
+//    if (event.buttons == 1) {
+//     ctx.fillStyle = "#000000";
+//     ctx.fillRect(event.clientX,event.clientY,10,10);
+
+//    }
+}
+
+
+
+
+
+            </script>
+
+
+    
+        
+    </body>
+</html>
