@@ -12,9 +12,9 @@ I have a Bachelor of Science in Mathematics from The City University of New York
 I work on all sorts of things, many mathematical or algorithmic. 
 
 
-
+<!--
 [Simple Drawing Tool](https://eric-conn.github.io/DrawingApp/index3.html)
-
+-->
 
 
 
