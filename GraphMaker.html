@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        
+    </head>
+
+
+    <style>
+
+
+/* body { margin:0 auto; max-width: 500px; } */
+
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+    
+    
+    svg {
+        background-color: lightskyblue;
+      }
+
+
+      
+      .usermade_circ:hover {stroke:yellow; stroke-width: 4}
+        p{
+        display: inline-block;
+        }
+
+        h3{
+        display: inline-block;
+        }
+      /* #svg-head {z-index: 5;}
+
+      circle {z-index: 10;}
+      line {z-index: 1;} */
+      
+      </style>
+    <body>
+        <div class = 'content'>
+        <div>
+        <h1>Graph Maker</h1>
+        
+        <h3>Build graphs!</h3> <p>Select a point to draw an edge.</p>
+        </div>
+<!--    
+        <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+            <circle onclick = "highlight_circle(event)" cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+          </svg>
+
+          <div></div> -->
+
+
+          <svg id = 'svg_head' onclick = "new_point(event);end_line(event)"  width="500"
+           height="500" xmlns="http://www.w3.org/2000/svg" onmousemove = 'draw_line(event)'>
+            <!-- <line 
+        style="cursor:pointer"
+        id="theline" 
+        x1="23" y1="24" x2="87" y2="96" stroke="black" stroke-width="4"/> -->
+          </svg>
+
+
+        <script>
+
+        
+            
+
+const change_color = (event) => {
+    return
+
+    if (event.target.dataset.click_state == "0"){
+
+    event.target.style.fill = 'red'
+    event.target.dataset.click_state = "1"}
+    else
+    {    
+
+        event.target.style.fill = 'blue'
+        event.target.dataset.click_state = "0"}
+
+
+    }
+
+    const highlight_circle = (event) => {
+
+        event.target.style.stroke = 'red'
+
+    }
+
+    let circ_count = 0
+    let line_count = 0
+
+    let line_click_state = 0
+
+    let selected_point = 0
+
+
+
+
+    let circ_list = []
+
+    let point_touch_state = 0
+    let end_line_make_point = 0
+
+    const new_point = (event) => {
+
+        let check_select = 0
+        
+        // console.log(document.querySelector(".usermade_circ"))
+        
+        
+    
+
+        if (document.querySelector(".usermade_circ")){
+            document.querySelectorAll(".usermade_circ").forEach(
+                element => {if(element.dataset.selected == '1')
+            {check_select = 1}}
+            )
+        }
+        
+        if (end_line_make_point == 0 && check_select == 1){return}
+
+
+        // if(end_line_make_point == 1){}
+        
+
+        setTimeout(() =>{
+        if (point_touch_state == 1){return}
+
+        
+        
+        
+
+        console.log("func called")
+
+        let circ = document.createElementNS("http://www.w3.org/2000/svg","circle")
+        
+        console.log("circ created")
+
+        rect_x = document.getElementById('svg_head').getBoundingClientRect().x
+        rect_y = document.getElementById('svg_head').getBoundingClientRect().y
+
+        x = event.clientX - rect_x
+        y = event.clientY - rect_y
+        // x = 0
+        // y = 0
+
+        circ.setAttribute('cx',String(x))    
+        circ.setAttribute('cy',String(y))
+        circ.setAttribute('r','8')
+        circ.setAttribute('fill', 'black');
+        circ.setAttribute('stroke', 'black');
+        circ.setAttribute('stroke-width', '2');
+        circ.setAttribute('id','circ_id:' + String(circ_count))
+        circ.setAttribute('onclick','select_circ(event);point_touch(event)')
+        circ.setAttribute('data-selected','0')
+
+
+        circ_count+=1
+        
+
+        setTimeout(() => {circ.setAttribute('class', 'usermade_circ')},200);
+
+        console.log("Attributes set")
+
+        // event.target.appendChild(circ)
+
+        document.getElementById('svg_head').appendChild(circ)
+
+        console.log(circ)
+        // console.log( document.getElementById('svg_head'))
+        },5)
+
+    }
+
+
+    const point_touch = (event) =>{
+
+        console.log('point_touch_firing')
+
+        point_touch_state = 1
+        setTimeout(() =>{ point_touch_state = 0},20 )
+
+    }
+
+    const select_circ = (event) =>{
+
+
+
+        if(event.target.dataset.selected == '0'){
+        event.target.setAttribute('fill','yellow')
+        event.target.setAttribute('stroke','yellow')
+        event.target.setAttribute('stroke-width','4')
+        event.target.dataset.selected = '1'
+
+        let x = event.clientX - rect_x
+        let y = event.clientY - rect_y
+
+        let cx = event.target.getAttribute('cx')
+        let cy = event.target.getAttribute('cy')
+
+
+        let line = document.createElementNS("http://www.w3.org/2000/svg","line")
+        line.setAttribute('x1',cx)
+        line.setAttribute('y1',cy)
+        line.setAttribute('x2',x)
+        line.setAttribute('y2',y)
+        line.setAttribute('id','line_id:'+String(line_count))
+
+        document.getElementById('svg_head').appendChild(line)
+
+        setTimeout(() => {line_click_state = 1},10)
+
+        selected_point = event.target
+
+        // rect_x = document.getElementById('svg_head').getBoundingClientRect().x
+        // rect_y = document.getElementById('svg_head').getBoundingClientRect().y
+
+
+
+        // <!-- <line 
+        // style="cursor:pointer"
+        // id="theline" 
+        // x1="23" y1="24" x2="87" y2="96" stroke="black" stroke-width="4"/> -->
+
+
+    }
+        else
+        {event.target.setAttribute('fill','black')
+        event.target.setAttribute('stroke','black')
+        event.target.setAttribute('stroke-width','2')
+        event.target.dataset.selected = '0'
+        }
+
+
+
+        // document.querySelector(".usermade_circ").forEach(
+        //     (element) => {
+
+        //         element.setAttribute('class', 'usermade_circ_off')
+
+
+        //     }
+        // )
+
+
+    }
+
+    const draw_line = (event) => {
+
+
+        if (line_click_state == 0){return}
+
+        line = document.getElementById('line_id:'+String(line_count))
+
+
+        let x = event.clientX - rect_x
+        let y = event.clientY - rect_y
+
+        line.setAttribute('x2',x)
+        line.setAttribute('y2',y)
+        line.setAttribute('stroke','yellow')
+        line.setAttribute('fill','yellow')
+        line.setAttribute('stroke-width','4')
+
+
+
+
+
+
+        // if (event.buttons && event.buttons == 1){line_count += 1
+        //     line_click_state = 0
+        //     line.setAttribute('stroke','black')
+        //     line.setAttribute('fill','black')
+
+
+        //     }
+
+
+        // if (line_click_state == 0){
+
+        // line_count += 1}
+
+    }
+
+    const end_line = event => {
+
+
+
+
+        
+
+        console.log('in end line:',point_touch_state)
+
+
+
+        if(point_touch_state == 0 && line_click_state == 1){
+            // console.log('in end line:',point_touch_state)
+            
+            line_click_state = 0
+            
+
+            line = document.getElementById('line_id:'+String(line_count))
+
+            line_count += 1
+
+            line.setAttribute('stroke','black')
+            line.setAttribute('fill','black')
+
+            selected_point.setAttribute('stroke','black')
+            selected_point.setAttribute('fill','black')
+            selected_point.dataset.selected = '0'
+
+            x_raw = event.clientX
+            y_raw = event.clientY
+
+            console.log('idd',document.elementFromPoint(x_raw, y_raw).id)
+
+            // if(document.elementFromPoint(x_raw, y_raw).id == 'svg_head'){
+            //     new_point(event)
+            // }
+            // else{document.elementFromPoint(x_raw, y_raw).click();
+
+            // }
+
+            
+
+            // document.getElementById('svg_head').click()
+
+
+            new_point(event)
+        
+        
+        }
+    
+
+        }
+
+
+    
+
+
+
+
+
+
+        </script>
+
+
+</div>
+    </body>
+</html>
