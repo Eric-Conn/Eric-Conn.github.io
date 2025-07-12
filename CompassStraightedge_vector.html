@@ -449,7 +449,8 @@ else{compres_switch = 0
             console.log('idd',document.elementFromPoint(x_raw, y_raw).id)
             console.log('idd',document.elementFromPoint(x_raw, y_raw))
 
-            if(document.elementFromPoint(x_raw, y_raw).tagName == 'line'){
+            if(document.elementFromPoint(x_raw, y_raw).tagName == 'line'
+            || document.elementFromPoint(x_raw, y_raw).getAttribute('class') == 'compres_class' ){
                 new_point(event)
 
                 circ_select_state = 0
