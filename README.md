@@ -17,7 +17,8 @@ I work on all sorts of things, many mathematical or algorithmic.
 -->
 
 Tool to draw graph theory graphs: 
-[Graph Maker](https://eric-conn.github.io/GraphMaker/GraphMaker.html) (not done, still has some bugs).
+[Graph Maker](https://eric-conn.github.io/GraphMaker/GraphMaker.html)
+(not done, need to add a way to save graphs).
 
 
 ## About me:
