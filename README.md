@@ -18,9 +18,17 @@ I have a Bachelor of Science in Mathematics from The City University of New York
 I work on all sorts of things, many mathematical or algorithmic. 
 
 
-<!--
-[Simple Drawing Tool](https://eric-conn.github.io/DrawingApp/index3.html)
+### Project 1
+
+### Project 2
+
+### Project 3
+
+
+
 -->
+[Simple Drawing Tool](https://eric-conn.github.io/DrawingApp/index3.html)
+
 
 Tool to draw graph theory graphs: 
 [Graph Maker](https://eric-conn.github.io/GraphMaker/GraphMaker.html)
@@ -116,4 +124,6 @@ This project is not done.
 For this project we used transformed the dataset into a time series and then use exponetial smoothing to make future predictions.
 
 Note: I have no affiliation with the U.S. Government.
+
+-->
 
