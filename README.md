@@ -5,7 +5,7 @@
 
 <img src="Assets/cube_rotate_test_true2.gif" alt="A gif of a spinning cube should be here!"/>
 
-
+My name is eric Connelly
 
 
 ### Project 1
@@ -38,9 +38,9 @@ I have a Bachelor of Science in Mathematics from The City University of New York
 I work on all sorts of things, many mathematical or algorithmic. 
 
 
-<!--
+
 [Simple Drawing Tool](https://eric-conn.github.io/DrawingApp/index3.html)
--->
+
 
 Tool to draw graph theory graphs: 
 [Graph Maker](https://eric-conn.github.io/GraphMaker/GraphMaker.html)
