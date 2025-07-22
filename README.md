@@ -1,5 +1,11 @@
+
+
 ## Eric Connelly's Website
 {:.no_toc}
+
+
+<h2 style="font-family:tempus sans itc;"><a href="website_homepage.htm">Home</a> <a href="website_hills.htm">Hills Pupil Tailored Website</a></h2>
+
 
 <img src="Assets/cube_rotate_test_true2.gif" alt="A gif of a spinning cube should be here!"/>
 
