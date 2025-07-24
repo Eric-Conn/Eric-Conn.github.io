@@ -29,6 +29,16 @@ I work on all sorts of things, many mathematical or algorithmic.
 
 [Simple Drawing Tool](https://eric-conn.github.io/DrawingApp/index3.html)
 
+Some things I want to do/ need to start/ finish.
+
+Random Walk generator
+Graph Decomposer (Factorizer)
+Voxel Orientation Detector
+CNN Learning Process
+Backpropagator Graph
+Trajectory Decomposer
+Trajectory averager with thresholder.
+
 -->
 
 
@@ -49,15 +59,7 @@ Check out my Github: [Github](https://github.com/Eric-Conn)
 ### Idea list
 {:.no_toc}
 
-Some things I want to do/ need to start/ finish.
 
-Random Walk generator
-Graph Decomposer (Factorizer)
-Voxel Orientation Detector
-CNN Learning Process
-Backpropagator Graph
-Trajectory Decomposer
-Trajectory averager with thresholder.
 
 
 
