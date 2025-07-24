@@ -17,7 +17,7 @@ I have a Bachelor of Science in Mathematics from The City University of New York
 
 I work on all sorts of things, many mathematical or algorithmic. 
 
-
+<!--
 ### Project 1
 
 ### Project 2
@@ -26,8 +26,10 @@ I work on all sorts of things, many mathematical or algorithmic.
 
 
 
-<!--
+
 [Simple Drawing Tool](https://eric-conn.github.io/DrawingApp/index3.html)
+
+-->
 
 
 Tool to draw graph theory graphs: 
@@ -125,5 +127,5 @@ For this project we used transformed the dataset into a time series and then use
 
 Note: I have no affiliation with the U.S. Government.
 
--->
+
 
