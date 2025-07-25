@@ -3,9 +3,9 @@
 ## Eric Connelly's Website
 {:.no_toc}
 
-
+<!--
 <h2 ><a href="website_homepage.htm">Home</a> <a style="margin-left: 1em" href="website_hills.htm">Projects</a> <a style="margin-left: 1em" href="website_hills.htm">Gallery</a>    </h2>
-
+-->
 
 <img src="Assets/cube_rotate_test_true2.gif" alt="A gif of a spinning cube should be here!"/>
 
