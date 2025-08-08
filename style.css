@@ -1,0 +1,189 @@
+/* --- Color Palette & Global Styles --- */
+/* f8f9fa */
+:root {
+    --bg-color: #fefefe;
+    --text-color: #212529;
+    --primary-color: #1e6bb8; /* The 'Minimal' theme blue */
+    --border-color: #e1e4e8;
+    --header-bg: #ffffff;
+}
+
+/* Add smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Top Bar --- */
+.top-bar {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.top-bar nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.top-bar nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.top-bar nav a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Hero Banner --- */
+
+
+.glimmer {
+    display: block;
+    margin: auto;
+    height: 40%;
+    width: 40%;
+  } 
+
+
+
+/* .hero-banner {
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+} */
+
+/* .hero-banner img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover; This is key: it scales the image to cover the area without stretching it
+} */
+
+/* --- Section Styling --- */
+main section {
+    padding: 4rem 0; /* Add vertical space between sections */
+}
+
+main h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+main h2 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Projects Section --- */
+#projects {
+    /* Prevents the sticky header from covering the title on jump */
+    scroll-margin-top: 5rem;
+}
+
+.project-list {
+    display: grid;
+    /* Responsive grid: 1 column on small screens, 2 on medium, 3 on large */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.project-item {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; /* Keeps image corners rounded */
+    display: flex;
+    flex-direction: column; /* Stacks image above text */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(33, 37, 41, 0.1);
+}
+
+.project-thumbnail img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 10; /* Gives images a consistent shape */
+    object-fit: cover;
+}
+
+.project-description {
+    padding: 1.5rem;
+    flex-grow: 1; /* Ensures all cards have the same height if in a row */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-description h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.project-description p {
+    flex-grow: 1; /* Pushes tags to the bottom */
+}
+
+.project-tags span {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: #6c757d;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* --- Footer --- */
+.site-footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
