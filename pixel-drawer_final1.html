@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Pixel Drawer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            padding: 1.5em;
+            touch-action: none;
+        }
+        #main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            
+            /* This is the correct and sufficient fix for the drag-state bug */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE/Edge */
+            user-select: none;         /* Standard */
+        }
+        #controls-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .controls-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #grid-container {
+            display: grid;
+            width: 560px;
+            height: 560px;
+            border: 2px solid #333;
+            background-color: #fff;
+            cursor: crosshair;
+        }
+        .grid-cell {
+            border: 1px solid #eee;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #fff;
+            transition: all 0.2s;
+        }
+        button.active {
+            border-color: #007bff;
+            background-color: #e7f3ff;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+        }
+        button:not(.active):hover { background-color: #e9e9e9; }
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+            transition: opacity 0.2s;
+        }
+        fieldset[disabled] {
+            opacity: 0.5;
+        }
+        label { font-size: 14px; color: #555; }
+        input[type="range"] { cursor: pointer; width: 100px; }
+        input[type="color"] { width: 50px; height: 40px; padding: 2px; border: 1px solid #ccc; cursor: pointer; }
+        .value-display { font-weight: bold; font-family: monospace; font-size: 16px; min-width: 30px; text-align: center; }
+        #color-preview { width: 30px; height: 30px; border: 1px solid #ccc; border-radius: 4px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Pixel Drawer</h1>
+    <div id="main-container">
+        <div id="controls-container">
+            <div class="controls-row">
+                 <div class="control-group">
+                    <label>Resolution:</label>
+                    <input type="range" id="resolution-slider" min="8" max="64" value="28" step="4">
+                    <span id="resolution-value" class="value-display">28x28</span>
+                </div>
+                <div class="control-group">
+                    <button id="brush-btn">Brush</button>
+                    <button id="eraser-btn">Eraser</button>
+                </div>
+            </div>
+            <div class="controls-row">
+                <div id="brush-controls" class="control-group">
+                    <label>Size:</label>
+                    <input type="range" id="brush-size-slider" min="1" max="15" value="5">
+                    <span id="brush-size-value" class="value-display">5</span>
+                    <label style="margin-left:10px;">Softness:</label>
+                    <input type="range" id="softness-slider" min="0" max="100" value="50">
+                    <span id="softness-value" class="value-display">50</span>
+                </div>
+            </div>
+            <div class="controls-row">
+                <button id="mode-toggle-btn">Switch to Color</button>
+                <fieldset id="color-config-fieldset">
+                    <div id="grayscale-controls" class="control-group">
+                        <label>Color:</label>
+                        <div id="color-preview"></div>
+                        <input type="range" id="grayscale-slider" min="0" max="255" value="0">
+                        <span id="grayscale-value" class="value-display">0</span>
+                    </div>
+                    <div id="color-controls" class="control-group hidden">
+                         <label>Color:</label>
+                         <input type="color" id="color-picker" value="#000000">
+                    </div>
+                </fieldset>
+            </div>
+            <div class="controls-row">
+                <button id="invert-btn">Invert</button>
+                <button id="clear-btn">Clear</button>
+                <button id="download-btn">Download</button>
+            </div>
+        </div>
+        <div id="grid-container"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- State ---
+            let currentResolution = 28;
+            let preChangeResolution = 28;
+            let pixelData = []; 
+            let isDrawing = false;
+            let currentTool = 'brush';
+            let brushSize = 5;
+            let brushSoftness = 50;
+            let drawingMode = 'grayscale';
+            let currentGrayValue = 0;
+            let currentColorValue = '#000000';
+
+            // --- DOM Elements ---
+            const gridContainer = document.getElementById('grid-container');
+            const resolutionSlider = document.getElementById('resolution-slider');
+            const resolutionValue = document.getElementById('resolution-value');
+            const brushBtn = document.getElementById('brush-btn');
+            const eraserBtn = document.getElementById('eraser-btn');
+            const brushSizeSlider = document.getElementById('brush-size-slider');
+            const brushSizeValue = document.getElementById('brush-size-value');
+            const softnessSlider = document.getElementById('softness-slider');
+            const softnessValue = document.getElementById('softness-value');
+            const modeToggleBtn = document.getElementById('mode-toggle-btn');
+            const colorConfigFieldset = document.getElementById('color-config-fieldset');
+            const grayscaleControls = document.getElementById('grayscale-controls');
+            const colorControls = document.getElementById('color-controls');
+            const grayscaleSlider = document.getElementById('grayscale-slider');
+            const grayscaleValue = document.getElementById('grayscale-value');
+            const colorPreview = document.getElementById('color-preview');
+            const colorPicker = document.getElementById('color-picker');
+            const invertBtn = document.getElementById('invert-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            const downloadBtn = document.getElementById('download-btn');
+
+            // --- Event Listeners ---
+            resolutionSlider.addEventListener('mousedown', () => { preChangeResolution = parseInt(resolutionSlider.value, 10); });
+            resolutionSlider.addEventListener('input', (e) => { resolutionValue.textContent = `${e.target.value}x${e.target.value}`; });
+            resolutionSlider.addEventListener('change', (e) => {
+                const newRes = parseInt(e.target.value, 10);
+                if (newRes === preChangeResolution) return;
+                if (window.confirm('Changing resolution may result in data loss. Continue?')) {
+                    setupGrid(newRes, [...pixelData], currentResolution);
+                } else {
+                    resolutionSlider.value = preChangeResolution;
+                    resolutionValue.textContent = `${preChangeResolution}x${preChangeResolution}`;
+                }
+            });
+
+            brushBtn.addEventListener('click', () => setTool('brush'));
+            eraserBtn.addEventListener('click', () => setTool('eraser'));
+            modeToggleBtn.addEventListener('click', toggleMode);
+            brushSizeSlider.addEventListener('input', (e) => { brushSize = parseInt(e.target.value, 10); brushSizeValue.textContent = brushSize; });
+            softnessSlider.addEventListener('input', (e) => { brushSoftness = parseInt(e.target.value, 10); softnessValue.textContent = brushSoftness; });
+            grayscaleSlider.addEventListener('input', (e) => { currentGrayValue = parseInt(e.target.value, 10); updateGrayscaleUI(); });
+            colorPicker.addEventListener('input', (e) => { currentColorValue = e.target.value; });
+            invertBtn.addEventListener('click', invertAllColors);
+            clearBtn.addEventListener('click', () => setupGrid(currentResolution));
+            downloadBtn.addEventListener('click', downloadImage);
+
+            // --- Robust Drawing Event Listeners ---
+            gridContainer.addEventListener('mousedown', (e) => { isDrawing = true; applyBrushToEvent(e); });
+            gridContainer.addEventListener('touchstart', (e) => { e.preventDefault(); isDrawing = true; applyBrushToEvent(e); });
+            gridContainer.addEventListener('mousemove', (e) => { if (isDrawing && e.buttons === 1) applyBrushToEvent(e); });
+            gridContainer.addEventListener('touchmove', (e) => { e.preventDefault(); if (isDrawing) applyBrushToEvent(e); });
+            window.addEventListener('mouseup', () => { isDrawing = false; });
+            window.addEventListener('touchend', () => { isDrawing = false; });
+            window.addEventListener('mouseleave', () => { isDrawing = false; });
+            
+            // --- Core Functions ---
+            function setTool(tool) { /* ... same as before ... */ }
+            function setupGrid(resolution, oldData, oldRes) { /* ... same as before ... */ }
+            function toggleMode() { /* ... same as before ... */ }
+            function applyBrushToCell(centerCell) { /* ... same as before ... */ }
+            function updateCanvasDisplay(){ /* ... same as before ... */ }
+            function invertAllColors(){ /* ... same as before ... */ }
+            function applyBrushToEvent(e){ /* ... same as before ... */ }
+            function updateCellColor(index){ /* ... same as before ... */ }
+            function updateGrayscaleUI(){ /* ... same as before ... */ }
+            function hexToRgb(hex){ /* ... same as before ... */ }
+            function calculateLuminance(rgb){ /* ... same as before ... */ }
+            function downloadImage(){ /* ... same as before ... */ }
+            
+            // Unchanged functions for completeness
+            function setTool(tool) {
+                currentTool = tool;
+                brushBtn.classList.toggle('active', tool === 'brush');
+                eraserBtn.classList.toggle('active', tool === 'eraser');
+                colorConfigFieldset.disabled = (tool === 'eraser');
+            }
+            function setupGrid(resolution, oldData = null, oldRes = 0) {
+                currentResolution = resolution;
+                preChangeResolution = resolution;
+                gridContainer.style.gridTemplateColumns = `repeat(${resolution}, 1fr)`;
+                gridContainer.style.gridTemplateRows = `repeat(${resolution}, 1fr)`;
+                gridContainer.innerHTML = '';
+                const totalPixels = resolution * resolution;
+                pixelData = new Array(totalPixels);
+                for (let i = 0; i < totalPixels; i++) {
+                    const newY = Math.floor(i / resolution);
+                    const newX = i % resolution;
+                    let color;
+                    if (oldData && oldRes > 0) {
+                        const sourceX = Math.floor(newX * (oldRes / resolution));
+                        const sourceY = Math.floor(newY * (oldRes / resolution));
+                        const sourceIndex = sourceY * oldRes + sourceX;
+                        color = oldData[sourceIndex];
+                    } else {
+                        color = { r: 255, g: 255, b: 255 };
+                    }
+                    pixelData[i] = { ...color }; 
+                    const cell = document.createElement('div');
+                    cell.classList.add('grid-cell');
+                    cell.dataset.index = i;
+                    gridContainer.appendChild(cell);
+                }
+                updateCanvasDisplay();
+            }
+            function toggleMode() {
+                drawingMode = (drawingMode === 'grayscale') ? 'color' : 'grayscale';
+                modeToggleBtn.textContent = (drawingMode === 'color') ? 'Switch to Grayscale' : 'Switch to Color';
+                grayscaleControls.classList.toggle('hidden');
+                colorControls.classList.toggle('hidden');
+                updateCanvasDisplay();
+            }
+            function applyBrushToCell(centerCell) {
+                const centerIndex = parseInt(centerCell.dataset.index, 10);
+                const centerRow = Math.floor(centerIndex / currentResolution);
+                const centerCol = centerIndex % currentResolution;
+                const radius = (brushSize - 1) / 2;
+                const softnessFactor = brushSoftness / 100;
+                let targetColorRgb;
+                if (currentTool === 'eraser') {
+                    targetColorRgb = { r: 255, g: 255, b: 255 };
+                } else {
+                    targetColorRgb = (drawingMode === 'color') ? hexToRgb(currentColorValue) : { r: currentGrayValue, g: currentGrayValue, b: currentGrayValue };
+                }
+                for (let r_offset = -Math.ceil(radius); r_offset <= Math.ceil(radius); r_offset++) {
+                    for (let c_offset = -Math.ceil(radius); c_offset <= Math.ceil(radius); c_offset++) {
+                        const distance = Math.sqrt(r_offset**2 + c_offset**2);
+                        if (distance > radius) continue;
+                        const targetRow = centerRow + r_offset;
+                        const targetCol = centerCol + c_offset;
+                        if (targetRow >= 0 && targetRow < currentResolution && targetCol >= 0 && targetCol < currentResolution) {
+                            const targetIndex = targetRow * currentResolution + targetCol;
+                            const currentPixel = pixelData[targetIndex];
+                            const falloff = (softnessFactor === 0) ? 1 : (1 - (distance / radius)) ** (1 + softnessFactor * 2);
+                            const newPixel = {
+                                r: Math.round(currentPixel.r * (1 - falloff) + targetColorRgb.r * falloff),
+                                g: Math.round(currentPixel.g * (1 - falloff) + targetColorRgb.g * falloff),
+                                b: Math.round(currentPixel.b * (1 - falloff) + targetColorRgb.b * falloff)
+                            };
+                            pixelData[targetIndex] = newPixel;
+                            updateCellColor(targetIndex);
+                        }
+                    }
+                }
+            }
+            function updateCanvasDisplay(){ for (let i = 0; i < pixelData.length; i++) updateCellColor(i); }
+            function invertAllColors(){ for (let i = 0; i < pixelData.length; i++) { const p = pixelData[i]; p.r=255-p.r; p.g=255-p.g; p.b=255-p.b; } updateCanvasDisplay(); }
+            function applyBrushToEvent(e){ const t = e.touches ? document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY) : e.target; if(t && t.classList.contains('grid-cell')) applyBrushToCell(t); }
+            function updateCellColor(index){ if(!pixelData[index])return; const v=pixelData[index], c=gridContainer.children[index]; if(c){ if(drawingMode==='grayscale'){ const l=calculateLuminance(v); c.style.backgroundColor=`rgb(${l},${l},${l})`;} else {c.style.backgroundColor=`rgb(${v.r},${v.g},${v.b})`;}} }
+            function updateGrayscaleUI(){ grayscaleValue.textContent=currentGrayValue; colorPreview.style.backgroundColor=`rgb(${currentGrayValue},${currentGrayValue},${currentGrayValue})`; }
+            function hexToRgb(hex){ const r=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex); return r ? {r:parseInt(r[1],16),g:parseInt(r[2],16),b:parseInt(r[3],16)} : {r:0,g:0,b:0}; }
+            function calculateLuminance(rgb){ return Math.round(0.2126*rgb.r + 0.7152*rgb.g + 0.0722*rgb.b); }
+            function downloadImage(){ const c=document.createElement('canvas');c.width=currentResolution;c.height=currentResolution;const x=c.getContext('2d'),d=x.createImageData(c.width,c.height);for(let i=0;i<pixelData.length;i++){let r,g,b;const v=pixelData[i];if(drawingMode==='grayscale'){r=g=b=calculateLuminance(v);}else{r=v.r;g=v.g;b=v.b;}d.data[i*4]=r;d.data[i*4+1]=g;d.data[i*4+2]=b;d.data[i*4+3]=255;}x.putImageData(d,0,0);const l=document.createElement('a');l.download=`drawing-${c.width}x${c.height}-${drawingMode}.png`;l.href=c.toDataURL();l.click(); }
+            
+            function initialize() {
+                const initialRes = parseInt(resolutionSlider.value, 10);
+                resolutionValue.textContent = `${initialRes}x${initialRes}`;
+                brushSizeValue.textContent = brushSizeSlider.value;
+                softnessValue.textContent = softnessSlider.value;
+                setTool('brush');
+                updateGrayscaleUI();
+                setupGrid(initialRes);
+            }
+            initialize();
+        });
+    </script>
+</body>
+</html>
