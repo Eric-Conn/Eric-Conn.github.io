@@ -45,6 +45,8 @@ body {
 
 .site-title {
     font-size: 1.25rem;
+    /* font-size: 1.75rem; */
+
     font-weight: 700;
     color: var(--text-color);
     text-decoration: none;
@@ -71,13 +73,16 @@ body {
 
 .glimmer {
     display: block;
-    margin: auto;
-    height: 40%;
-    width: 40%;
+    margin-right: auto;
+    height: 10%;
+    width: 10%;
   } 
 
 
   a { color: black; text-decoration:none; }
+
+  .my_contact { color: #1e6bb8;text-decoration:underline;
+    transition: color 0.2s ease-in-out;}
 
 
 
@@ -198,7 +203,3 @@ main h2 {
 }
 
 
-/* new stuff */
-.new_note {
-    font-size: 14px;
-  }
